@@ -29,34 +29,88 @@ public class DigitStripping {
 	
 	public static void challengeTwoThroughFive()
 	{
+		//count number of digits
 		Scanner secondUserInput = new Scanner (System.in);
 		System.out.println("Please enter a number.");
-		int inputLength = secondUserInput.nextInt();
+		int number = secondUserInput.nextInt();
+		int challengeTwo = number;
 		
 		int counter = 0;
-		while (inputLength > 0)
+		while (challengeTwo > 0)
 		{
-			inputLength = inputLength/10;
+			challengeTwo = challengeTwo/10;
 			counter++;	
 		}
 		System.out.println("There are " + counter + " digits in your number.");
 
-
-		
-	
-		int[] userNumbers2 = new int [6];
-		
-		int userNumber2 = inputLength.nextInt();
-		for (int i = 0; i < userNumbers2.length; i++)
+		int [] arrayTwo = new int [counter];
+		for (int i = 0; i < arrayTwo.length; i++)
 		{
-			int digitStripping = userNumber2%10;
-			userNumbers2[i] = digitStripping;
-			userNumber2 = userNumber2/10;
-			
+			int digitStripping = number%10;
+			arrayTwo[i] = digitStripping;
+			number = number/10;
 		}
-		System.out.println(Arrays.toString(userNumbers2));
-	}
-
+		
+		//count odd digits
+		int counter2 = 0;
+		for (int i = 0; i < arrayTwo.length; i++)
+		{
+			if (arrayTwo[i] % 2 != 0)
+			{
+				counter2++;
+			}
+			else 
+			{
+				counter2 = counter2+0;
+			}
+		}
+		
+		System.out.println("There are " + counter2 + " odd digits in your number.");
 	
-	}
+		//add up all the digits
+	
+		int sum = 0;
+		for (int i = 0; i < arrayTwo.length; i++)
+		{
+			sum = sum + arrayTwo[i];
+		}
+		System.out.println("The sum of the numbers is " + sum);
+	
+		
+		//round to nearest ten
+		
+		int sumLastNumber = sum%10;
+		int rounded = 0;
+		if (sum>=10)
+		{
+			if (sumLastNumber < 5)
+			{
+				rounded = sum - sumLastNumber;
+			}
+			else if (sumLastNumber > 5)
+			{
+				rounded = sum + sumLastNumber;
+			}
+			else if (sumLastNumber == 0)
+			{
+				rounded = rounded;
+			}
+		}
+		
+		
+		if (sum<10)
+		{
+			if (sum >=5 )
+			{
+				rounded = 10;
+			}
+			else if (sum < 5)
+			{
+				rounded = 0;
+			}
+		}
+		System.out.println("The rounded version of your number is " + rounded);
 
+		
+	}
+}
