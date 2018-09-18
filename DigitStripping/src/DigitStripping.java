@@ -4,7 +4,8 @@ import java.util.Scanner;
 import javax.swing.plaf.synth.SynthScrollBarUI;
 public class DigitStripping {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 	challengeOne();
 	challengeTwoThroughFive();
 	}
@@ -96,7 +97,6 @@ public class DigitStripping {
 				rounded = rounded;
 			}
 		}
-		
 		
 		if (sum<10)
 		{
